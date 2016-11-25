@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
 Enhance emoji with a single SVG file. Your graphic will be enhanced with an `<img>` element unless you specify otherwise.
 ```html
 <h1>
-  <img src="assets/img/bicycle.svg" alt="">
+  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -103,7 +103,7 @@ Enhance emoji with a single SVG file. Your graphic will be enhanced with an `<im
 becomes:
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
+  <img src="assets/img/bicycle.svg" alt="">
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -125,6 +125,22 @@ becomes:
 ```
 
 Feel free to use any rasterized graphic you like. File extensions other than SVG will be treated as raster graphics.
+
+### Sizing SVG Icons
+Emoji will be sized relative to the text they surround. If you want to make sure your SVG icons aren't oversized in the absense of CSS styles, set the `style` or `data-emojisvg-style` attributes on your `span.emoji`. emoSVG will look for the `style` attribute and then if not found the `data-emojisvg-style` attribute and if found will set the `style` attribute on the&nbsp;`svg.emoji`.
+
+```html
+<h1>
+  <span class="emoji" data-emosvg="assets/img/bicycle.svg" style="width:1em;height:1em">🚲</span>&nbsp;Biking in Amsterdam
+</h1>
+```
+
+becomes:
+```html
+<h1>
+  <img src="assets/img/bicycle.png" style="width:1em;height:1em" />&nbsp;Biking in Amsterdam
+</h1>
+```
 
 ### 😎 Hiding Icons from Screen Readers
 
