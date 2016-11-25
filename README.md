@@ -126,7 +126,7 @@ becomes:
 
 Feel free to use any rasterized graphic you like. File extensions other than SVG will be treated as raster graphics.
 
-### Sizing SVG Icons
+### 🐣 Sizing SVG Icons
 Emoji will be sized relative to the text they surround. If you want to make sure your SVG icons aren't oversized in the absense of CSS styles, set the `style` or `data-emojisvg-style` attributes on your `span.emoji`. emoSVG will look for the `style` attribute and then if not found the `data-emojisvg-style` attribute and if found will set the `style` attribute on the&nbsp;`svg.emoji`.
 
 ```html
