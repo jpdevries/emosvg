@@ -18,6 +18,7 @@ SVG icons can be:
  - animated 
  - any number of colors
  - delivered efficently together as a single sprite
+ - art directed with precision
  - styled with CSS Variables
  
 emoSVG will turn your emoji into SVG graphics if and when you ask it to. To accomplish this, emoSVG needs to know one thing:
