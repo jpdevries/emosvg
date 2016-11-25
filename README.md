@@ -1,5 +1,5 @@
 # emoSVG 🙄
-*(Ugh)*. Progressively enhanced emoji first iconography pattern and utility.  
+*(Ugh)*. Progressively enhanced Emoji&ndash;first iconography pattern and utility.  
 WIP.
 
 ## 🤔 Why?
