@@ -63,7 +63,7 @@ becomes:
 </h1>
 ```
 
-### Replace Emoji with SVG using JavaScript
+### 🌗 Replace Emoji with SVG using JavaScript
 
 Then include the `emoSVG.js` or `emoSVG.min.js` script in your page:
 ```html
