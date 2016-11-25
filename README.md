@@ -3,7 +3,7 @@
 WIP.
 
 ## 🤔 Why?
-Sure, we could initially ship heavy and enhanced icons. But we want to progressively enhance the web. We start working within the limitations of HTML and utilize the interperative nature of emoji to **initially deliver a growing and universal iconset that weight&nbsp;0kB**.
+Sure, we could initially ship heavy and enhanced icons. But we want to progressively enhance the web. We start working within the limitations of HTML and utilize the interperative nature of Emoji to **initially deliver a growing and universal iconset that weight&nbsp;0kB**.
 
 ### 💅 Progressive Enhancement
 
@@ -21,7 +21,7 @@ SVG icons can be:
  - art directed with precision
  - styled with CSS Variables
  
-emoSVG will turn your emoji into SVG graphics if and when you ask it to. To accomplish this, emoSVG needs to know one thing:
+emoSVG will turn your Emoji into SVG graphics if and when you ask it to. To accomplish this, emoSVG needs to know one thing:
  - the SVG graphic you'd like to replace the `span.emoji` with
 
 Your SVG graphic can be a SVG file or part of an SVG sprite.
@@ -34,12 +34,12 @@ That's totally up to you. emoSVG just gives you a simple API to turn a `span.emo
 
 ## 🛠 Usage
 
-Use emoji in your HTML. Wrap them in `span.emoji`.
+Use Emoji in your HTML. Wrap them in `span.emoji`.
 ```html
 <h1>
-  <span class="emoji">🎉</span>
+  <span class="Emoji">🎉</span>
   &nbsp;Party! You're invited&nbsp;
-  <span class="emoji">💃</span>
+  <span class="Emoji">💃</span>
 </h1>
 ```
 
@@ -49,7 +49,7 @@ _To progressively enhance Emoji you'll need to use the `data-emosvg` attribute t
 Enhance Emoji with an SVG graphic from a sprite. Your graphic will be enhanced with the splendid `<use>` syntax.
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
+  <span class="Emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -73,29 +73,29 @@ Then include the `emoSVG.js` or `emoSVG.min.js` script in your page:
 
 And finally use the JavaScript API to trigger the progressive enhancement.
 
-You can enhance emoji one at a time:
+You can enhance Emoji one at a time:
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
-  const emoji = document.querySelector('.emoji');
-  emoSVG.enhance(emoji);
+  const Emoji = document.querySelector('.emoji');
+  emoSVG.enhance(Emoji);
 });
 ```
 
-You can also enhance any number of emoji at once:
+You can also enhance any number of Emoji at once:
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
-  const emoji = document.querySelectorAll('.emoji');
-  emoSVG.enhance(emoji);
+  const Emoji = document.querySelectorAll('.emoji');
+  emoSVG.enhance(Emoji);
 });
 ```
 
 ### 🎨 SVG Graphic
-Enhance emoji with a single SVG file. Your graphic will be enhanced with an `<img>` element unless you specify otherwise.
+Enhance Emoji with a single SVG file. Your graphic will be enhanced with an `<img>` element unless you specify otherwise.
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
+  <span class="Emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -113,7 +113,7 @@ Scalable Vector Graphics are all the rage, but emoSVG understands you may want t
 
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/bicycle.png">🚲</span>&nbsp;Biking in Amsterdam
+  <span class="Emoji" data-emosvg="assets/img/bicycle.png">🚲</span>&nbsp;Biking in Amsterdam
 </h1>
 ```
 
@@ -127,11 +127,11 @@ becomes:
 Feel free to use any rasterized graphic you like. File extensions other than SVG will be treated as raster graphics.
 
 ### 🐣 Sizing SVG Icons
-Emoji will be sized relative to the text they surround. If you want to make sure your SVG icons aren't oversized in the absense of CSS styles, set the `style` or `data-emojisvg-style` attributes on your `span.emoji`. emoSVG will look for the `style` attribute and then if not found the `data-emojisvg-style` attribute and if found will set the `style` attribute on the&nbsp;`svg.emoji`.
+Emoji will be sized relative to the text they surround. If you want to make sure your SVG icons aren't oversized in the absense of CSS styles, set the `style` or `data-Emojisvg-style` attributes on your `span.emoji`. emoSVG will look for the `style` attribute and then if not found the `data-Emojisvg-style` attribute and if found will set the `style` attribute on the&nbsp;`svg.emoji`.
 
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/bicycle.svg" style="width:1em;height:1em">🚲</span>&nbsp;Biking in Amsterdam
+  <span class="Emoji" data-emosvg="assets/img/bicycle.svg" style="width:1em;height:1em">🚲</span>&nbsp;Biking in Amsterdam
 </h1>
 ```
 
@@ -148,8 +148,8 @@ Emoji are implicity accessible! There is no need to add alt text or labels. If y
 
 ```html
 <h1>
-  <span class="emoji" aria-hidden>🎉</span>
-  &nbsp;Party! You're invited&nbsp;<span class="emoji" aria-hidden>💃</span>
+  <span class="Emoji" aria-hidden>🎉</span>
+  &nbsp;Party! You're invited&nbsp;<span class="Emoji" aria-hidden>💃</span>
 </h1>
 ```
 
@@ -159,7 +159,7 @@ If you'd like to describe the SVG icon the `data-emosvg-alt` attribute has your 
 
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" data-emosvg-alt="Graphic of a commuter bicycle">🚲</span>
+  <span class="Emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" data-emosvg-alt="Graphic of a commuter bicycle">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -178,7 +178,7 @@ becomes:
 and likewise this:
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/bicycle.png" data-emosvg-alt="Raster icon of an old blue bike">🚲</span>&nbsp;Biking in Amsterdam
+  <span class="Emoji" data-emosvg="assets/img/bicycle.png" data-emosvg-alt="Raster icon of an old blue bike">🚲</span>&nbsp;Biking in Amsterdam
 </h1>
 ```
 
@@ -195,7 +195,7 @@ Please note that if the `aria-hidden` attribute exists and is set to anything ot
 
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" aria-hidden="true">🚲</span>
+  <span class="Emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" aria-hidden="true">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
