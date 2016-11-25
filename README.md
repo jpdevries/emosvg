@@ -37,9 +37,9 @@ That's totally up to you. emoSVG just gives you a simple API to turn a `span.emo
 Use Emoji in your HTML. Wrap them in `span.emoji`.
 ```html
 <h1>
-  <span class="Emoji">🎉</span>
+  <span class="emoji">🎉</span>
   &nbsp;Party! You're invited&nbsp;
-  <span class="Emoji">💃</span>
+  <span class="emoji">💃</span>
 </h1>
 ```
 
@@ -49,7 +49,7 @@ _To progressively enhance Emoji you'll need to use the `data-emosvg` attribute t
 Enhance Emoji with an SVG graphic from a sprite. Your graphic will be enhanced with the splendid `<use>` syntax.
 ```html
 <h1>
-  <span class="Emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
+  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
 Enhance Emoji with a single SVG file. Your graphic will be enhanced with an `<img>` element unless you specify otherwise.
 ```html
 <h1>
-  <span class="Emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
+  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -113,7 +113,7 @@ Scalable Vector Graphics are all the rage, but emoSVG understands you may want t
 
 ```html
 <h1>
-  <span class="Emoji" data-emosvg="assets/img/bicycle.png">🚲</span>&nbsp;Biking in Amsterdam
+  <span class="emoji" data-emosvg="assets/img/bicycle.png">🚲</span>&nbsp;Biking in Amsterdam
 </h1>
 ```
 
@@ -131,7 +131,7 @@ Emoji will be sized relative to the text they surround. If you want to make sure
 
 ```html
 <h1>
-  <span class="Emoji" data-emosvg="assets/img/bicycle.svg" style="width:1em;height:1em">🚲</span>&nbsp;Biking in Amsterdam
+  <span class="emoji" data-emosvg="assets/img/bicycle.svg" style="width:1em;height:1em">🚲</span>&nbsp;Biking in Amsterdam
 </h1>
 ```
 
@@ -148,8 +148,8 @@ Emoji are implicity accessible! There is no need to add alt text or labels. If y
 
 ```html
 <h1>
-  <span class="Emoji" aria-hidden>🎉</span>
-  &nbsp;Party! You're invited&nbsp;<span class="Emoji" aria-hidden>💃</span>
+  <span class="emoji" aria-hidden>🎉</span>
+  &nbsp;Party! You're invited&nbsp;<span class="emoji" aria-hidden>💃</span>
 </h1>
 ```
 
@@ -159,7 +159,7 @@ If you'd like to describe the SVG icon the `data-emosvg-alt` attribute has your 
 
 ```html
 <h1>
-  <span class="Emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" data-emosvg-alt="Graphic of a commuter bicycle">🚲</span>
+  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" data-emosvg-alt="Graphic of a commuter bicycle">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -178,7 +178,7 @@ becomes:
 and likewise this:
 ```html
 <h1>
-  <span class="Emoji" data-emosvg="assets/img/bicycle.png" data-emosvg-alt="Raster icon of an old blue bike">🚲</span>&nbsp;Biking in Amsterdam
+  <span class="emoji" data-emosvg="assets/img/bicycle.png" data-emosvg-alt="Raster icon of an old blue bike">🚲</span>&nbsp;Biking in Amsterdam
 </h1>
 ```
 
@@ -195,7 +195,7 @@ Please note that if the `aria-hidden` attribute exists and is set to anything ot
 
 ```html
 <h1>
-  <span class="Emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" aria-hidden="true">🚲</span>
+  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" aria-hidden="true">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
