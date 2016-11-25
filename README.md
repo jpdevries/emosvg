@@ -138,7 +138,7 @@ Emoji are implicity accessible! There is no need to add alt text or labels. If y
 
 ### 📣 Describing Enhaned Icons
 
-If you'd like to describe the icon the `data-emosvg-title` attribute has your back.
+If you'd like to describe the SVG icon the `data-emosvg-title` attribute has your back. If you are making use of `<title>` in your SVG code this may be&nbsp;unecessary.
 
 ```html
 <h1>
