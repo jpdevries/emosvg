@@ -3,7 +3,27 @@
 WIP.
 
 ## 🤔 Why?
-Sure, we could initially ship heavy and enhanced icons. But we want to progressively enhance the web. We start working within the limitations of HTML and utilize the interperative nature of emoji to deliver a growing and universal iconset that weights in at 0kB.
+Sure, we could initially ship heavy and enhanced icons. But we want to progressively enhance the web. We start working within the limitations of HTML and utilize the interperative nature of emoji to **initially deliver a growing and universal iconset that weight&nbsp;0kB**.
+
+### 💅 Progressive Enhancement
+
+There are several advantages to Emoji:
+ - fastest growing "language"
+ - 0kB cost to ship artwork
+ - interprative 
+ 
+It's not all fun and games though. Emoji are interpative, meaning your art director might not be comfortable with the lack of control of what sighted users will see. There is no "pixel perfect" control with Emoji. They'll look different on different systems. This is where progressive enhancement comes in. If we detect, determine, or assume that it is worth the cost of shipping SVG artwork, we can overwrite our nearly weightless Emoji iconography with SVG icons.
+
+SVG icons can be:
+ - animated 
+ - any number of colors
+ - delivered efficently together as a single sprite
+ - styled with CSS Variables
+ 
+emoSVG will turn your emoji into SVG graphics if and when you ask it to. To accomplish this, emoSVG needs to know one thing:
+ - the SVG graphic you'd like to replace the `span.emoji` with
+
+Your SVG graphic can be a SVG file or part of an SVG sprite.
 
 ## 🕰 When?
 That's totally up to you. emoSVG just gives you a simple API to turn a `span.emoji` element into the appropriate enhanced markup. We recommend that you enhance Emoji into something else when:
@@ -13,7 +33,7 @@ That's totally up to you. emoSVG just gives you a simple API to turn a `span.emo
 
 ## 🛠 Usage
 
-Use emojis in your HTML. Wrap them in `span.emoji`.
+Use emoji in your HTML. Wrap them in `span.emoji`.
 ```html
 <h1>
   <span class="emoji">🎉</span>
@@ -22,50 +42,7 @@ Use emojis in your HTML. Wrap them in `span.emoji`.
 </h1>
 ```
 
-Then include the `emoSVG.js` or `emoSVG.min.js` script in your page:
-```html
-<script src="assets/js/vendor/emoSVG/emoSVG.js"></script>
-```
-
-And finally use the JavaScript API to trigger the progressive enhancement.
-
-You can enhance emojis one at a time:
-
-```js
-document.addEventListener("DOMContentLoaded", function() {
-  const emoji = document.querySelector('.emoji');
-  emoSVG.enhance(emoji);
-});
-```
-
-You can also enhance any number of emojis at once:
-
-```js
-document.addEventListener("DOMContentLoaded", function() {
-  const emojis = document.querySelectorAll('.emoji');
-  emoSVG.enhance(emojis);
-});
-```
-
-### 💅 Progressive Enhancement
-
-There are several advantages to Emojis:
- - fastest growing "language"
- - 0kB cost to ship artwork
- - interprative 
- 
-It's not all fun and games though. Emojis are interpative, meaning your art director might not be comfortable with the lack of control of what sighted users will see. There is no "pixel perfect" control with Emojis. They'll look different on different systems. This is where progressive enhancement comes in. If we detect, determine, or assume that it is worth the cost of shipping SVG artwork, we can overwrite our nearly weightless Emoji iconography with SVG icons.
-
-SVG icons can be:
- - animated 
- - any number of colors
- - delivered efficently together as a single sprite
- - styled with CSS Variables
- 
-emoSVG will turn your emojis into SVG graphics if and when you ask it to. To accomplish this, emoSVG needs to know one thing:
- - the SVG graphic you'd like to replace the `span.emoji` with
-
-Your SVG graphic can be a SVG file or part of an SVG sprite.
+_To progressively enhance Emoji you'll need to use the `data-emosvg` attribute to specify the path to the icon art. You'll also need a tiny bit of&nbsp;JavaScript._
 
 ### 🛍 SVG Use 
 Enhance Emoji with an SVG graphic from a sprite. Your graphic will be enhanced with the splendid `<use>` syntax.
@@ -84,6 +61,33 @@ becomes:
   </svg>
   &nbsp;Biking in Amsterdam
 </h1>
+```
+
+### Replace Emoji with SVG using JavaScript
+
+Then include the `emoSVG.js` or `emoSVG.min.js` script in your page:
+```html
+<script src="assets/js/vendor/emoSVG/emoSVG.js"></script>
+```
+
+And finally use the JavaScript API to trigger the progressive enhancement.
+
+You can enhance emoji one at a time:
+
+```js
+document.addEventListener("DOMContentLoaded", function() {
+  const emoji = document.querySelector('.emoji');
+  emoSVG.enhance(emoji);
+});
+```
+
+You can also enhance any number of emoji at once:
+
+```js
+document.addEventListener("DOMContentLoaded", function() {
+  const emoji = document.querySelectorAll('.emoji');
+  emoSVG.enhance(emoji);
+});
 ```
 
 ### 🎨 SVG Graphic
@@ -123,7 +127,7 @@ Feel free to use any rasterized graphic you like. File extensions other than SVG
 
 ### 😎 Hiding Icons from Screen Readers
 
-Emojis are implicity accessible! There is no need to add alt text or labels. If you'd like to use Emojis strictly visually and hide them from screen readers use the `aria-hidden` attribute.
+Emoji are implicity accessible! There is no need to add alt text or labels. If you'd like to use Emoji strictly visually and hide them from screen readers use the `aria-hidden` attribute.
 
 ```html
 <h1>
