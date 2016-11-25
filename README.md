@@ -139,11 +139,11 @@ Emoji are implicity accessible! There is no need to add alt text or labels. If y
 
 ### 📣 Describing Enhaned Icons
 
-If you'd like to describe the SVG icon the `data-emosvg-title` attribute has your back. If you are making use of `<title>` in your SVG code this may be&nbsp;unecessary.
+If you'd like to describe the SVG icon the `data-emosvg-alt` attribute has your back. If you are making use of `<title>` in your SVG code this may be&nbsp;unecessary.
 
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" data-emosvg-title="Graphic of a commuter bicycle">🚲</span>
+  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" data-emosvg-alt="Graphic of a commuter bicycle">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -155,6 +155,21 @@ becomes:
     <title>Graphic of a commuter bicycle</title>
     <use xlink:href="assets/img/fontawesome.svg#bicycle"></use>
   </svg>
+  &nbsp;Biking in Amsterdam
+</h1>
+```
+
+and likewise this:
+```html
+<h1>
+  <span class="emoji" data-emosvg="assets/img/bicycle.png" data-emosvg-alt="Raster icon of an old blue bike">🚲</span>&nbsp;Biking in Amsterdam
+</h1>
+```
+
+becomes:
+```html
+<h1>
+  <img src="assets/img/bicycle.svg" alt="Raster icon of an old blue bike">
   &nbsp;Biking in Amsterdam
 </h1>
 ```
