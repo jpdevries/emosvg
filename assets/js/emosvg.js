@@ -23,21 +23,22 @@ function emoSVG(elements) {
         html = isSprite ? '<svg ' + classAttr + style + ariaHidden + '>\n  ' + svgTitle + '<use xlink:href="' + artwork + '"></use>\n</svg>' : '<img src="' + artwork + '" alt="' + alt + '" ' + classAttr + style + ariaHidden + '>';
 
     if (!inline) element.outerHTML = html;else fetch(artwork).then(function (response) {
-      return (// http://caniuse.com/#feat=fetch
-        response.text().then(function (svg) {
-          var parser = new DOMParser(),
-              parsed = parser.parseFromString(svg, "text/xml");
+      // http://caniuse.com/#feat=fetch
+      response.text().then(function (svg) {
+        console.log(svg);
 
-          parsed.querySelector('svg').setAttribute('class', element.getAttribute('class'));
-          parsed.querySelector('title') ? parsed.querySelector('title').innerHTML = alt : parsed.querySelector('svg').innerHTML = '' + svgTitle + parsed.querySelector('svg').innerHTML;
-          if (element.hasAttribute('aria-hidden')) parsed.querySelector('svg').setAttribute('aria-hidden', element.getAttribute('aria-hidden'));
-          if (element.hasAttribute('style')) parsed.querySelector('svg').setAttribute('style', element.getAttribute('style'));
+        var parser = new DOMParser(),
+            parsed = parser.parseFromString(svg, "text/xml");
 
-          try {
-            element.outerHTML = parsed.querySelector('svg').outerHTML;
-          } catch (e) {}
-        })
-      );
+        parsed.querySelector('svg').setAttribute('class', element.getAttribute('class'));
+        parsed.querySelector('title') ? parsed.querySelector('title').innerHTML = alt : parsed.querySelector('svg').innerHTML = '' + svgTitle + parsed.querySelector('svg').innerHTML;
+        if (element.hasAttribute('aria-hidden')) parsed.querySelector('svg').setAttribute('aria-hidden', element.getAttribute('aria-hidden'));
+        if (element.hasAttribute('style')) parsed.querySelector('svg').setAttribute('style', element.getAttribute('style'));
+
+        try {
+          element.outerHTML = parsed.querySelector('svg').outerHTML;
+        } catch (e) {}
+      });
     });
   }
 }

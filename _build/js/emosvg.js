@@ -22,8 +22,10 @@ function emoSVG(elements) {
 `<img src="${artwork}" alt="${alt}" ${classAttr}${style}${ariaHidden}>`;
 
     if(!inline) element.outerHTML = html;
-    else fetch(artwork).then((response) => ( // http://caniuse.com/#feat=fetch
+    else fetch(artwork).then((response) => { // http://caniuse.com/#feat=fetch
       response.text().then((svg) => {
+        console.log(svg);
+
         var parser = new DOMParser(),
         parsed = parser.parseFromString(svg, "text/xml");
 
@@ -36,9 +38,9 @@ function emoSVG(elements) {
           element.outerHTML = parsed.querySelector('svg').outerHTML;
         } catch (e) {
 
-        } 
-      })
-    ));
+        }
+      });
+    });
 
   }
 }
