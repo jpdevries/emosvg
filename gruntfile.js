@@ -33,6 +33,12 @@ module.exports = function(grunt) {
         dest: '<%= dirs.test %>emosvg',
         expand: true
       },
+      'qunit': {
+        src: './qunit/**/*',
+        cwd: '<%= dirs.lib %>',
+        dest: '<%= dirs.test %>assets/',
+        expand: true
+      },
       'fetch': {
         src: '<%= dirs.lib %>fetch/fetch.js',
         dest: '<%= dirs.dist %>polyfill/fetch/',
