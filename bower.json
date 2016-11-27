@@ -1,0 +1,20 @@
+{
+  "name": "emoSVG",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jpdevries/emoSVG",
+  "authors": [
+    "JP DeVries <mail@devries.jp>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fetch": "*"
+  }
+}

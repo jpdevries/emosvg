@@ -3,34 +3,39 @@
 WIP.
 
 ## 🤔 Why?
-Sure, we could initially ship heavy and enhanced icons. But we want to progressively enhance the web. We start working within the limitations of HTML and utilize the interperative nature of Emoji to **initially deliver a growing and universal iconset that weight&nbsp;0kB**.
+Sure, we could initially ship heavy and enhanced icons. But we want to progressively enhance the web. We start working within the limitations of HTML and utilize the interpretive nature of Emoji to **initially deliver a growing and universal iconset that weight&nbsp;0kB**.
 
 ### 💅 Progressive Enhancement
 
 There are several advantages to Emoji:
  - fastest growing "language"
  - 0kB cost to ship artwork
- - interprative 
- 
+ - interpretive
+
 It's not all fun and games though. Emoji are interpative, meaning your art director might not be comfortable with the lack of control of what sighted users will see. There is no "pixel perfect" control with Emoji. They'll look different on different systems. This is where progressive enhancement comes in. If we detect, determine, or assume that it is worth the cost of shipping SVG artwork, we can overwrite our nearly weightless Emoji iconography with SVG icons.
 
 SVG icons can be:
- - animated 
+ - animated
  - any number of colors
- - delivered efficently together as a single sprite
+ - delivered efficiently together as a single sprite
  - art directed with precision
  - styled with CSS Variables
- 
+
 emoSVG will turn your Emoji into SVG graphics if and when you ask it to. To accomplish this, emoSVG needs to know one thing:
  - the SVG graphic you'd like to replace the `span.emoji` with
 
 Your SVG graphic can be a SVG file or part of an SVG sprite.
 
+### 🏋️‍ Weigh In
+`emoSVG.min.js` weights a whopping 522 bytes GZIPed and&nbsp;minified. Whoop&mdash;d&mdash;doo. That's not the point. Remember that the artwork you'll be replacing your Emoji with does way something. Keep that in mind and only pass this cost onto your users when&nbsp;appropriate.
+
 ## 🕰 When?
-That's totally up to you. emoSVG just gives you a simple API to turn a `span.emoji` element into the appropriate enhanced markup. We recommend that you enhance Emoji into something else when:
- - no `save-data` header is detected
- - JavaScript is enabled
- - user preferences you may have opt into, or do not opt out of, the cost of enhanced iconography
+When you ship your SVG icons totally up to you. emoSVG just gives you a simple API to turn a `span.emoji` element into the appropriate enhanced markup. We recommend that you enhance Emoji into something else when:
+ - no `save-data` header is&nbsp;detected
+ - JavaScript is&nbsp;enabled
+ - user preferences opt into, or do not opt out of, the costs of enhanced&nbsp;iconography
+
+
 
 ## 🛠 Usage
 
@@ -39,13 +44,13 @@ Use Emoji in your HTML. Wrap them in `span.emoji`.
 <h1>
   <span class="emoji">🎉</span>
   &nbsp;Party! You're invited&nbsp;
-  <span class="emoji">💃</span>
+  <span class="dancing emoji">💃</span>
 </h1>
 ```
 
 _To progressively enhance Emoji you'll need to use the `data-emosvg` attribute to specify the path to the icon art. You'll also need a tiny bit of&nbsp;JavaScript._
 
-### 🛍 SVG Use 
+### 🛍 SVG Use
 Enhance Emoji with an SVG graphic from a sprite. Your graphic will be enhanced with the splendid `<use>` syntax.
 ```html
 <h1>
@@ -77,17 +82,17 @@ You can enhance Emoji one at a time:
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
-  const Emoji = document.querySelector('.emoji');
-  emoSVG.enhance(Emoji);
+  const emoji = document.querySelector('.emoji');
+  emoSVG(emoji);
 });
 ```
 
-You can also enhance any number of Emoji at once:
+You can also enhance any number of Emoji at&nbsp;once:
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
-  const Emoji = document.querySelectorAll('.emoji');
-  emoSVG.enhance(Emoji);
+  const emoji = document.querySelectorAll('.emoji');
+  emoSVG(emoji);
 });
 ```
 
@@ -95,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
 Enhance Emoji with a single SVG file. Your graphic will be enhanced with an `<img>` element unless you specify otherwise.
 ```html
 <h1>
-  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
+  <span class="emoji" data-emosvg="assets/img/bicycle.svg">🚲</span>
   &nbsp;Biking in Amsterdam
 </h1>
 ```
@@ -107,6 +112,29 @@ becomes:
   &nbsp;Biking in Amsterdam
 </h1>
 ```
+
+### 👣 Inline SVG
+Art using the `<img src="art.svg">` can not be styled using CSS because it is not part of the document. The SVG Use syntax can be styled, but that is only applicable when you are using a SVG sprite sheet. If you have a single SVG graphic that you'd like to be embed as part of the document set `data-emosvg-inline="true"`.
+
+```html
+<h1>
+  <span class="bomb emoji" data-emosvg="assets/icons/fontawesome/svg/bomb.svg" data-emosvg-inline="true">💣</span>
+  &nbsp;Da bomb
+</h1>
+```
+
+becomes
+
+```html
+<h1>
+  <svg width="2048" height="2048" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg"><path id="icon-bomb" d="M699 717q-10-25-34-35t-49 0q-108 44-191 127t-127 191q-10 25 0 49t35 34q13 5 24 5 42 0 60-40 34-84 98.5-148.5t148.5-98.5q25-11 35-35t0-49zm942-356l46 46-244 243 68 68q19 19 19 45.5t-19 45.5l-64 64q89 161 89 343 0 143-55.5 273.5t-150 225-225 150-273.5 55.5-273.5-55.5-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5q182 0 343 89l64-64q19-19 45.5-19t45.5 19l68 68zm8-56q-10 10-22 10-13 0-23-10l-91-90q-9-10-9-23t9-23q10-9 23-9t23 9l90 91q10 9 10 22.5t-10 22.5zm230 230q-11 9-23 9t-23-9l-90-91q-10-9-10-22.5t10-22.5q9-10 22.5-10t22.5 10l91 90q9 10 9 23t-9 23zm41-183q0 14-9 23t-23 9h-96q-14 0-23-9t-9-23 9-23 23-9h96q14 0 23 9t9 23zm-192-192v96q0 14-9 23t-23 9-23-9-9-23v-96q0-14 9-23t23-9 23 9 9 23zm151 55l-91 90q-10 10-22 10-13 0-23-10-10-9-10-22.5t10-22.5l90-91q10-9 23-9t23 9q9 10 9 23t-9 23z"></path></svg>
+  &nbsp;Da bomb
+</h1>
+```
+
+Now that the SVG is part of the document it can be further art&nbsp;directed.
+
+_Inline SVG relies on the Fetch API so make sure you polyfill it if necessary before loading emoSVG._
 
 ### 👾 Raster Graphics
 Scalable Vector Graphics are all the rage, but emoSVG understands you may want to get your bitmap on.
@@ -127,7 +155,7 @@ becomes:
 Feel free to use any rasterized graphic you like. File extensions other than SVG will be treated as raster graphics.
 
 ### 🐣 Sizing SVG Icons
-Emoji will be sized relative to the text they surround. If you want to make sure your SVG icons aren't oversized in the absense of CSS styles, set the `style` or `data-Emojisvg-style` attributes on your `span.emoji`. emoSVG will look for the `style` attribute and then if not found the `data-Emojisvg-style` attribute and if found will set the `style` attribute on the&nbsp;`svg.emoji`.
+Emoji will be sized relative to the text they surround. If you want to make sure your SVG icons aren't oversized in the absense of CSS styles, set the `style` or `data-emojisvg-style` attributes on your `span.emoji`. emoSVG will look for the `style` attribute and then if not found the `data-emojisvg-style` attribute and if found will set the `style` attribute on the&nbsp;`svg.emoji`.
 
 ```html
 <h1>
@@ -144,14 +172,35 @@ becomes:
 
 ### 😎 Hiding Icons from Screen Readers
 
-Emoji are implicity accessible! There is no need to add alt text or labels. If you'd like to use Emoji strictly visually and hide them from screen readers use the `aria-hidden` attribute.
+Emoji are implicitly accessible! There is no need to add alt text or labels. If you'd like to use Emoji strictly visually and hide them from screen readers use the `aria-hidden` attribute.
 
 ```html
 <h1>
-  <span class="emoji" aria-hidden>🎉</span>
-  &nbsp;Party! You're invited&nbsp;<span class="emoji" aria-hidden>💃</span>
+  <span class="emoji" data-emosvg="assets/img/party.svg" aria-hidden>🎉</span>
+  &nbsp;Party! You're invited&nbsp;
 </h1>
 ```
+
+#### 👻 ARIA Hidden
+Please note that if the `aria-hidden` attribute exists and is set to anything other than false the enhanced graphic will inherit the `aria-hidden` attribute value.
+
+```html
+<h1>
+  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" aria-hidden="true">🚲</span>
+  &nbsp;Biking in Amsterdam
+</h1>
+```
+
+becomes:
+```html
+<h1>
+  <svg aria-hidden="true">
+    <use xlink:href="assets/img/fontawesome.svg#bicycle"></use>
+  </svg>
+  &nbsp;Biking in Amsterdam
+</h1>
+```
+
 
 ### 📣 Describing Enhaned Icons
 
@@ -189,26 +238,3 @@ becomes:
   &nbsp;Biking in Amsterdam
 </h1>
 ```
-
-#### 👻 ARIA Hidden
-Please note that if the `aria-hidden` attribute exists and is set to anything other than false the enhanced graphic will inherit the `aria-hidden` attribute value.
-
-```html
-<h1>
-  <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle" aria-hidden="true">🚲</span>
-  &nbsp;Biking in Amsterdam
-</h1>
-```
-
-becomes:
-```html
-<h1>
-  <svg aria-hidden="true">
-    <use xlink:href="assets/img/fontawesome.svg#bicycle"></use>
-  </svg>
-  &nbsp;Biking in Amsterdam
-</h1>
-```
-
-
-
