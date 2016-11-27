@@ -34,6 +34,8 @@ function emoSVG(elements) {
         if(element.hasAttribute('aria-hidden')) parsed.querySelector('svg').setAttribute('aria-hidden', element.getAttribute('aria-hidden'));
         if(element.hasAttribute('style')) parsed.querySelector('svg').setAttribute('style', element.getAttribute('style'));
 
+        console.log(parsed);
+
         try {
           element.outerHTML = parsed.querySelector('svg').outerHTML;
         } catch (e) {
