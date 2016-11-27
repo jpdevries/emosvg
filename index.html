@@ -55,7 +55,7 @@
   <div id="qunit-fixture"></div>
 
   <script>
-    if(!Array.prototype.includes) document.write('<script src="assets/js/vendor/includes/includes.js"><\/script>');
+    if(!String.prototype.includes) document.write('<script src="assets/js/vendor/includes/string-includes.js"><\/script>');
     if(!window.Promise) document.write('<script src="assets/js/vendor/promise-polyfill/promise.js"><\/script>');
     if(!self.fetch) document.write('<script src="assets/js/vendor/fetch/fetch.js"><\/script>');
   </script>
