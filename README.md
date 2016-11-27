@@ -45,6 +45,12 @@ When you ship your SVG icons totally up to you. emoSVG just gives you a simple A
 
 ## 🛠 Usage
 
+emoSVG is installable via bower or by downloading this&nbsp;repository.
+
+```bower
+bower install emosvg --save
+```
+
 Use Emoji in your HTML. Wrap them in&nbsp;`span.emoji`.
 ```html
 <h1>
