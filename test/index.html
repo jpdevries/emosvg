@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>emoSVG</title>
+  <link rel="stylesheet" href="assets/qunit/qunit.css">
+  <style media="screen">
+    h1 img, h1 svg, h2 img, h2 svg, h3 img, h3 svg {
+      display:inline-block;
+      width:1em;
+      height:1em;
+    }
+    h1:hover, h1:focus, h1:target {
+      color:blue;
+    }
+    h1:hover svg, h1:focus svg, h1:target svg {
+      fill:currentColor;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>
+      <span class="bolt emoji" data-emosvg="assets/icons/iconmonstr/sprite.svg#weather-76">⚡️</span>
+      &nbsp;Ride the lightning
+    </h1>
+    <h1>
+      <span class="bomb emoji" aria-hidden="true" style="width:1em;height:1em" data-emosvg-alt="Old school bomb graphic" data-emosvg="assets/icons/fontawesome/svg/bomb.svg" data-emosvg-inline="true">💣</span>
+      &nbsp;Da bomb
+    </h1>
+    <h1>
+      <span class="img emoji" data-emosvg="assets/icons/fontawesome/svg/bicycle.svg" style="width:1.2em">🚲</span>
+      &nbsp;Biking in Amsterdam
+    </h1>
+    <h1>
+      <span class="raster emoji" data-emosvg="assets/icons/fontawesome/png/beer.png">🍺</span>&nbsp;Beer
+    </h1>
+    <h1>
+      <span class="sized emoji" data-emosvg="assets/icons/fontawesome/svg/apple.svg" style="width:1em;height:1em">🍎</span>&nbsp;Apple
+    </h1>
+    <h1>
+      <span class="emoji" data-emosvg="assets/icons/iconmonstr/iconmonstr-generation-8.svg" aria-hidden>👱‍♀️</span>
+      &nbsp;Hello!
+    </h1>
+    <h1>
+      <span class="described emoji" data-emosvg="assets/icons/iconmonstr/sprite.svg#weather-93" data-emosvg-alt="Graphic of a flame">🔥</span>
+      &nbsp;Uh oh
+    </h1>
+    <h1>
+      <span class="described emoji" data-emosvg="assets/icons/fontawesome/svg/check.svg" data-emosvg-alt="Completed checkmark">✅</span>&nbsp;All done
+    </h1>
+  </main>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <script>
+    if(!String.prototype.includes) document.write('<script src="./emosvg/polyfill/includes/string-includes.js"><\/script>');
+    if(!window.Promise) document.write('<script src="./emosvg/polyfill/promise-polyfill/promise.js"><\/script>');
+    if(!self.fetch) document.write('<script src="./emosvg/polyfill/fetch/fetch.js"><\/script>');
+  </script>
+
+  <script src="./emosvg/polyfill/svg4everybody/svg4everybody.js"></script>
+  <script src="./assets/qunit/qunit.js"></script>
+  <script src="./emosvg/emosvg.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var emoji = document.querySelectorAll('.emoji');
+
+      runTests();
+
+      emoSVG(emoji).then(function() {
+        svg4everybody();
+        runFetchTests(); // these tests don't pass in Phantom
+      });
+
+      function runTests() {
+        QUnit.start();
+        QUnit.test( "span replaced", function( assert ) {
+          assert.ok( document.querySelector('svg.bolt.emoji use[*|href="assets/icons/iconmonstr/sprite.svg#weather-76"]'), "Passed!" );
+        });
+
+        QUnit.test( "class names preserved", function( assert ) {
+          assert.ok( document.querySelector('svg.bolt.emoji'), "Passed!" );
+        });
+
+        QUnit.test( "single svg image", function( assert ) {
+          assert.ok( document.querySelector('img.img.emoji'), "Passed!" );
+        });
+
+        QUnit.test( "raster image", function( assert ) {
+          assert.ok( document.querySelector('img.raster.emoji[src*=".png"]'), "Passed!" );
+        });
+
+        QUnit.test( "sized graphic", function( assert ) {
+          assert.ok( document.querySelector('img.sized.emoji[style]'), "Passed!" );
+        });
+
+        QUnit.test( "muting", function( assert ) {
+          assert.ok( document.querySelector('.emoji[aria-hidden]'), "Passed!" );
+        });
+
+        QUnit.test( "describing", function( assert ) {
+          assert.ok( document.querySelector('img.described.emoji[alt*=" "]'), "Passed!" );
+          assert.ok( document.querySelector('svg.described.emoji title'), "Passed!" );
+        });
+      }
+
+      function runFetchTests() {
+        QUnit.test( "fetch embed", function( assert ) {
+          assert.ok( document.querySelector('svg.bomb.emoji'), "Passed!" );
+          assert.ok( document.querySelector('svg.bomb.emoji').getAttribute('aria-hidden') == 'true', "Passed!" );
+          assert.ok( document.querySelector('svg.bomb.emoji').hasAttribute('style'), "Passed!" );
+          assert.ok( document.querySelector('svg.bomb.emoji > title'), "Passed!" );
+        });
+      }
+    });
+  </script>
+</body>
+</html>

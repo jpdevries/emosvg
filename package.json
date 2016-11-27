@@ -2,9 +2,9 @@
   "name": "emosvg",
   "version": "0.0.0",
   "description": "*(Ugh)*. Progressively enhanced Emoji&ndash;first iconography pattern and utility.   WIP.",
-  "main": "gruntfile.js",
+  "main": "dist/emosvg.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,11 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
     "grunt-babel": "^6.0.0",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-qunit": "^1.2.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-growl": "^0.1.5"

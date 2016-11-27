@@ -17,5 +17,14 @@
   "dependencies": {
     "fetch": "*",
     "svg4everybody": "~2.1.3"
+  },
+  "devDependencies": {
+    "qunit": "~2.0.1",
+    "svgsprite": "git://github.com/jpdevries/svgsprite.git"
+  },
+  "exportsOverride": {
+    "svgsprite": {
+      "fontawesome":"assets/img"
+    }
   }
 }

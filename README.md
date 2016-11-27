@@ -30,7 +30,8 @@ Your SVG graphic can be a SVG file or part of an SVG sprite.
 `emoSVG.min.js` weights a whopping 522 bytes GZIPed and&nbsp;minified. Whoop&mdash;d&mdash;doo. That's not the point. Remember that the artwork you'll be replacing your Emoji with does way something. Keep that in mind and only pass this cost onto your users when&nbsp;appropriate.
 
 ### 🐛 Browser Support
-emoSVG works in modern browsers. With the assistance of polyfills, it supports&nbsp;IE9+.
+emoSVG works in modern browsers. With the assistance of polyfills, it supports&nbsp;IE9+.  
+[More on polyfills&nbsp;here](https://github.com/jpdevries/emoSVG/tree/master/assets/js/polyfill).
 
 ## 🕰 When?
 When you ship your SVG icons totally up to you. emoSVG just gives you a simple API to turn a `span.emoji` element into the appropriate enhanced markup. We recommend that you enhance Emoji into something else when:
