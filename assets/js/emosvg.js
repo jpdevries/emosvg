@@ -25,8 +25,6 @@ function emoSVG(elements) {
     if (!inline) element.outerHTML = html;else fetch(artwork).then(function (response) {
       // http://caniuse.com/#feat=fetch
       response.text().then(function (svg) {
-        console.log(svg);
-
         var parser = new DOMParser(),
             parsed = parser.parseFromString(svg, "text/xml");
 
