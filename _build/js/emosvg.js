@@ -34,13 +34,11 @@ function emoSVG(elements) {
         if(element.hasAttribute('aria-hidden')) parsed.querySelector('svg').setAttribute('aria-hidden', element.getAttribute('aria-hidden'));
         if(element.hasAttribute('style')) parsed.querySelector('svg').setAttribute('style', element.getAttribute('style'));
 
-        console.log(parsed.childNodes[0], parsed.querySelector('svg'), parsed.querySelector('svg').outerHTML);
-
-        try {
-          element.outerHTML = parsed.querySelector('svg').outerHTML;
-        } catch (e) {
-
-        }
+        element.outerHTML = (function(){ // IE 11 doesn't support parsed.querySelector('svg').outerHTML :(
+          const div = document.createElement('div');
+          div.appendChild(parsed.querySelector('svg'));
+          return div.innerHTML;
+        })();
       });
     });
 
