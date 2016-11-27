@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       dist:'dist/',
       js:'./js/',
       lib:'./lib/',
-      test:'./test'
+      test:'./test/'
     },
     bower: {
       install: {
@@ -20,13 +20,19 @@ module.exports = function(grunt) {
       'fontawesome': {
         src: './**/*',
         cwd: '<%= dirs.lib %>/svgsprite/fontawesome/src',
-        dest: 'test/assets/icons/fontawesome',
+        dest: '<%= dirs.test %>assets/icons/fontawesome',
         expand: true
       },
       'fontawesome-sprite': {
         src: '<%= dirs.lib %>/svgsprite/fontawesome/icons.svg',
-        dest: 'test/assets/icons/fontawesome/fontawesome.svg'
-      }
+        dest: '<%= dirs.test %>assets/icons/fontawesome/fontawesome.svg'
+      },
+      'emosvg': {
+        src: './**/*',
+        cwd: '<%= dirs.dist %>',
+        dest: '<%= dirs.test %>emosvg',
+        expand: true
+      },
     },
     clean: ["<%= dirs.lib %>"],
     connect: {

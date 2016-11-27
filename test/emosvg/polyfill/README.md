@@ -16,5 +16,5 @@ _This assumes you've copied the polyfills to an `assets/js/emosvg/polyfill`&nbsp
 <script src="assets/js/emosvg/polyfill/svg4everybody/svg4everybody.js"></script>
 
 <!-- finally load emoSVG -->
-<script src="assets/js/emosvg.js"></script>
+<script src="assets/js/emosvg/emosvg.js"></script>
 ```
