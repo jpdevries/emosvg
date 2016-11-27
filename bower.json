@@ -9,10 +9,12 @@
   "authors": [
     "JP DeVries <mail@devries.jp>"
   ],
-  "main": "index.html",
+  "main": [
+    "dist/js/emosvg.js",
+    "dist/js/emosvg.min.js"
+  ],
   "license": "MIT",
   "ignore": [
-    ".*",
     "node_modules",
     "bower_components",
     "test",
