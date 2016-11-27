@@ -32,7 +32,11 @@ function emoSVG(elements) {
         if(element.hasAttribute('aria-hidden')) parsed.querySelector('svg').setAttribute('aria-hidden', element.getAttribute('aria-hidden'));
         if(element.hasAttribute('style')) parsed.querySelector('svg').setAttribute('style', element.getAttribute('style'));
 
-        element.outerHTML = parsed.querySelector('svg').outerHTML;
+        try {
+          element.outerHTML = parsed.querySelector('svg').outerHTML;
+        } catch (e) {
+
+        } 
       })
     ));
 
