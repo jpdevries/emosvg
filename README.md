@@ -1,6 +1,8 @@
 # emoSVG 🙄
-*(Ugh)*. Progressively enhanced Emoji&ndash;first iconography pattern and utility.  
+*(Ugh)*. Progressively enhanced Emoji&ndash;first iconography pattern and&nbsp;utility.  
 WIP.
+
+![](http://j4p.us/0r0o071g3Z00/emoSVG.gif)
 
 ## 🤔 Why?
 Sure, we could initially ship heavy and enhanced icons. But we want to progressively enhance the web. We start working within the limitations of HTML and utilize the interpretive nature of Emoji to **initially deliver a growing and universal iconset that weight&nbsp;0kB**.
@@ -8,23 +10,23 @@ Sure, we could initially ship heavy and enhanced icons. But we want to progressi
 ### 💅 Progressive Enhancement
 
 There are several advantages to Emoji:
- - fastest growing "language"
- - 0kB cost to ship artwork
+ - fastest growing&nbsp;"language"
+ - 0kB cost to ship&nbsp;artwork
  - interpretive
 
-It's not all fun and games though. Emoji are interpative, meaning your art director might not be comfortable with the lack of control of what sighted users will see. There is no "pixel perfect" control with Emoji. They'll look different on different systems. This is where progressive enhancement comes in. If we detect, determine, or assume that it is worth the cost of shipping SVG artwork, we can overwrite our nearly weightless Emoji iconography with SVG icons.
+It's not all fun and games though. Emoji are interpative, meaning your art director might not be comfortable with the lack of control of what sighted users will see. There is no "pixel perfect" control with Emoji. They'll look different on different systems. This is where progressive enhancement comes in. If we detect, determine, or assume that it is worth the cost of shipping SVG artwork, we can overwrite our nearly weightless Emoji iconography with SVG&nbsp;icons.
 
 SVG icons can be:
  - animated
- - any number of colors
- - delivered efficiently together as a single sprite
- - art directed with precision
- - styled with CSS Variables
+ - any number of&nbsp;colors
+ - delivered efficiently together as a single&nbsp;sprite
+ - art directed with&nbsp;precision
+ - styled with CSS&nbsp;Variables
 
 emoSVG will turn your Emoji into SVG graphics if and when you ask it to. To accomplish this, emoSVG needs to know one thing:
- - the SVG graphic you'd like to replace the `span.emoji` with
+ - the SVG graphic you'd like to replace the `span.emoji`&nbsp;with
 
-Your SVG graphic can be a SVG file or part of an SVG sprite.
+Your SVG graphic can be a SVG file or part of an SVG&nbsp;sprite.
 
 ### 🏋️‍ Weigh In
 `emoSVG.min.js` weights a whopping 607 bytes GZIPed and&nbsp;minified. Whoop&mdash;d&mdash;doo. That's not the point. Remember that the artwork you'll be replacing your Emoji with does way something. Keep that in mind and only pass this cost onto your users when&nbsp;appropriate.
@@ -34,7 +36,7 @@ emoSVG works in modern browsers. With the assistance of polyfills, it supports&n
 [More on polyfills&nbsp;here](https://github.com/jpdevries/emoSVG/tree/master/dist/polyfill).
 
 ## 🕰 When?
-When you ship your SVG icons totally up to you. emoSVG just gives you a simple API to turn a `span.emoji` element into the appropriate enhanced markup. We recommend that you enhance Emoji into something else when:
+When you ship your SVG icons totally up to you. emoSVG just gives you a simple API to turn a `span.emoji` element into the appropriate enhanced markup. We recommend that you enhance Emoji into something else&nbsp;when:
  - no `save-data` header is&nbsp;detected
  - JavaScript is&nbsp;enabled
  - user preferences opt into, or do not opt out of, the costs of enhanced&nbsp;iconography
@@ -43,7 +45,7 @@ When you ship your SVG icons totally up to you. emoSVG just gives you a simple A
 
 ## 🛠 Usage
 
-Use Emoji in your HTML. Wrap them in `span.emoji`.
+Use Emoji in your HTML. Wrap them in&nbsp;`span.emoji`.
 ```html
 <h1>
   <span class="emoji">🎉</span>
@@ -55,7 +57,7 @@ Use Emoji in your HTML. Wrap them in `span.emoji`.
 _To progressively enhance Emoji you'll need to use the `data-emosvg` attribute to specify the path to the icon art. You'll also need a tiny bit of&nbsp;JavaScript._
 
 ### 🛍 SVG Use
-Enhance Emoji with an SVG graphic from a sprite. Your graphic will be enhanced with the splendid `<use>` syntax.
+Enhance Emoji with an SVG graphic from a sprite. Your graphic will be enhanced with the splendid `<use>`&nbsp;syntax.
 ```html
 <h1>
   <span class="emoji" data-emosvg="assets/img/fontawesome.svg#bicycle">🚲</span>
@@ -75,14 +77,14 @@ becomes:
 
 ### 🌗 Replace Emoji with SVG using JavaScript
 
-Then include the `emoSVG.js` or `emoSVG.min.js` script in your page:
+Then include the `emoSVG.js` or `emoSVG.min.js` script in your&nbsp;page:
 ```html
 <script src="assets/js/vendor/emoSVG/emoSVG.js"></script>
 ```
 
-And finally use the JavaScript API to trigger the progressive enhancement.
+And finally use the JavaScript API to trigger the progressive&nbsp;enhancement.
 
-You can enhance Emoji one at a time:
+You can enhance Emoji one at a&nbsp;time:
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
@@ -101,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
 ```
 
 ### 🎨 SVG Graphic
-Enhance Emoji with a single SVG file. Your graphic will be enhanced with an `<img>` element unless you specify otherwise.
+Enhance Emoji with a single SVG file. Your graphic will be enhanced with an `<img>` element unless you specify&nbsp;otherwise.
 ```html
 <h1>
   <span class="emoji" data-emosvg="assets/img/bicycle.svg">🚲</span>
@@ -138,7 +140,7 @@ becomes
 
 Now that the SVG is part of the document it can be further art&nbsp;directed.
 
-_Inline SVG relies on the Fetch API so make sure you polyfill it if necessary before loading emoSVG._
+_Inline SVG relies on the Fetch API so make sure you polyfill it if necessary before loadin&nbsp; emoSVG._
 
 Inlining SVG is an async action as a fetch() request must be made to load the artwork. emoSVG promises to let you know when that is&nbsp;done:
 
@@ -150,7 +152,7 @@ emoSVG(emoji).then(function() {
 ```
 
 ### 👾 Raster Graphics
-Scalable Vector Graphics are all the rage, but emoSVG understands you may want to get your bitmap on.
+Scalable Vector Graphics are all the rage, but emoSVG understands you may want to get your bitmap&nbsp;on.
 
 ```html
 <h1>
@@ -165,7 +167,7 @@ becomes:
 </h1>
 ```
 
-Feel free to use any rasterized graphic you like. File extensions other than SVG will be treated as raster graphics.
+Feel free to use any rasterized graphic you like. File extensions other than SVG will be treated as raster&nbsp;graphics.
 
 ### 🐣 Sizing SVG Icons
 Emoji will be sized relative to the text they surround. If you want to make sure your SVG icons aren't oversized in the absense of CSS styles, set the `style` or `data-emojisvg-style` attributes on your `span.emoji`. emoSVG will look for the `style` attribute and then if not found the `data-emojisvg-style` attribute and if found will set the `style` attribute on the&nbsp;`svg.emoji`.
@@ -185,7 +187,7 @@ becomes:
 
 ### 😎 Hiding Icons from Screen Readers
 
-Emoji are implicitly accessible! There is no need to add alt text or labels. If you'd like to use Emoji strictly visually and hide them from screen readers use the `aria-hidden` attribute.
+Emoji are implicitly accessible! There is no need to add alt text or labels. If you'd like to use Emoji strictly visually and hide them from screen readers use the `aria-hidden`&nbsp;attribute.
 
 ```html
 <h1>
@@ -195,7 +197,7 @@ Emoji are implicitly accessible! There is no need to add alt text or labels. If 
 ```
 
 #### 👻 ARIA Hidden
-Please note that if the `aria-hidden` attribute exists and is set to anything other than false the enhanced graphic will inherit the `aria-hidden` attribute value.
+Please note that if the `aria-hidden` attribute exists and is set to anything other than false the enhanced graphic will inherit the `aria-hidden` attribute&nbsp;value.
 
 ```html
 <h1>
@@ -253,7 +255,13 @@ becomes:
 ```
 
 ## Getting Started
-After cloning the repository run `npm install` or `yarn` to install the `node_modules`. You can then build and test the project.
+After cloning the repository run `npm install` or `yarn` to install the `node_modules`. You can then build and test the&nbsp;project.
+
+Optionally enable Growl notifications install [terminal-notifier](https://github.com/alextucker/grunt-growl#getting-started) with RubyGems:
+```bash
+gem install terminal-notifier
+```
+_Note: Depending on your Ruby setup you may need to use `sudo gem install terminal-notifier`._
 
 ### Test emoSVG
 ```bash

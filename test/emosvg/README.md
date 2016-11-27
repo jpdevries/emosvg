@@ -1,7 +1,3 @@
-## emoSVG
-
-emoSVG is free to use.&nbsp;Enjoy.
-
 ### 🌗 Replace Emoji with SVG using JavaScript
 
 Then include the `emoSVG.js` or `emoSVG.min.js` script in your page:

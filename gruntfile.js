@@ -126,6 +126,10 @@ module.exports = function(grunt) {
       uglify: {
           title: "grunt",
           message: "JavaScript minified."
+      },
+      alive: {
+          title: "grunt",
+          message: "It's alived."
       }
     },
     watch: { /* trigger tasks on save */
@@ -151,5 +155,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['growl:watch', 'watch']);
   grunt.registerTask('test',['connect:build','qunit']);
+  grunt.registerTask('alive',['connect:alive','growl:alive']);
   grunt.registerTask('build',['bower','copy','babel','uglify','clean','growl:build']);
 };
