@@ -68,14 +68,18 @@
     document.addEventListener("DOMContentLoaded", function() {
       var emoji = document.querySelectorAll('.emoji');
 
-      runTests();
-
       emoSVG(emoji).then(function() {
+        console.log('svg4everybody');
         svg4everybody();
-        runFetchTests(); // these tests don't pass in Phantom
+        runAsyncTests(); // these tests don't pass in Phantom
+      }).catch(function(err) {
+        console.log(err);
       });
 
+      runTests();
+
       function runTests() {
+        console.log('runTests');
         QUnit.start();
         QUnit.test( "span replaced", function( assert ) {
           assert.ok( document.querySelector('svg.bolt.emoji use[*|href="assets/icons/iconmonstr/sprite.svg#weather-76"]'), "Passed!" );
@@ -107,7 +111,8 @@
         });
       }
 
-      function runFetchTests() {
+      function runAsyncTests() {
+        console.log('runAsyncTests');
         QUnit.test( "fetch embed", function( assert ) {
           assert.ok( document.querySelector('svg.bomb.emoji'), "Passed!" );
           assert.ok( document.querySelector('svg.bomb.emoji').getAttribute('aria-hidden') == 'true', "Passed!" );

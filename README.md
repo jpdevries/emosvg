@@ -27,7 +27,7 @@ emoSVG will turn your Emoji into SVG graphics if and when you ask it to. To acco
 Your SVG graphic can be a SVG file or part of an SVG sprite.
 
 ### 🏋️‍ Weigh In
-`emoSVG.min.js` weights a whopping 522 bytes GZIPed and&nbsp;minified. Whoop&mdash;d&mdash;doo. That's not the point. Remember that the artwork you'll be replacing your Emoji with does way something. Keep that in mind and only pass this cost onto your users when&nbsp;appropriate.
+`emoSVG.min.js` weights a whopping 607 bytes GZIPed and&nbsp;minified. Whoop&mdash;d&mdash;doo. That's not the point. Remember that the artwork you'll be replacing your Emoji with does way something. Keep that in mind and only pass this cost onto your users when&nbsp;appropriate.
 
 ### 🐛 Browser Support
 emoSVG works in modern browsers. With the assistance of polyfills, it supports&nbsp;IE9+.  
@@ -139,6 +139,15 @@ becomes
 Now that the SVG is part of the document it can be further art&nbsp;directed.
 
 _Inline SVG relies on the Fetch API so make sure you polyfill it if necessary before loading emoSVG._
+
+Inlining SVG is an async action as a fetch() request must be made to load the artwork. emoSVG promises to let you know when that is&nbsp;done:
+
+```js
+emoSVG(emoji).then(function() {
+  console.log('inline SVGs loaded');
+  svg4everybody();
+});
+```
 
 ### 👾 Raster Graphics
 Scalable Vector Graphics are all the rage, but emoSVG understands you may want to get your bitmap on.
