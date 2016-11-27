@@ -10,15 +10,16 @@
     "JP DeVries <mail@devries.jp>"
   ],
   "main": [
-    "dist/js/emosvg.js",
-    "dist/js/emosvg.min.js"
+    "dist"
   ],
   "license": "MIT",
   "ignore": [
+    "_build",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "*.md"
   ],
   "dependencies": {
     "fetch": "*",
