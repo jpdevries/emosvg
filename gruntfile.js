@@ -65,14 +65,16 @@ module.exports = function(grunt) {
       build: {
         options: {
           port: parseInt(grunt.option('port')) || 9002,
-          base: './test'
+          base: './test',
+          open: false
         }
       },
       alive: {
         options: {
           port: parseInt(grunt.option('port')) || 9003,
           base: './test',
-          keepalive: true
+          keepalive: true,
+          open: true
         }
       }
     },
