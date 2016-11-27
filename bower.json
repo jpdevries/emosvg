@@ -1,10 +1,10 @@
 {
   "name": "emosvg",
   "version": "0.0.0",
-  "homepage": "https://github.com/jpdevries/emoSVG",
+  "homepage": "https://github.com/jpdevries/emosvg",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jpdevries/emoSVG.git"
+    "url": "https://github.com/jpdevries/emosvg.git"
   },
   "authors": [
     "JP DeVries <mail@devries.jp>"
