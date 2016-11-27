@@ -33,6 +33,26 @@ module.exports = function(grunt) {
         dest: '<%= dirs.test %>emosvg',
         expand: true
       },
+      'fetch': {
+        src: '<%= dirs.lib %>fetch/fetch.js',
+        dest: '<%= dirs.dist %>polyfill/fetch/',
+        flatten: true,
+        expand: true
+      },
+      'svg4everybody': {
+        src: '*.js',
+        cwd: '<%= dirs.lib %>svg4everybody/',
+        dest: '<%= dirs.dist %>polyfill/svg4everybody/',
+        flatten: true,
+        expand: true
+      },
+      'promise-polyfill': {
+        src: '*.js',
+        cwd: '<%= dirs.lib %>promise-polyfill/',
+        dest: '<%= dirs.dist %>polyfill/promise-polyfill/',
+        flatten: true,
+        expand: true
+      }
     },
     clean: ["<%= dirs.lib %>"],
     connect: {
@@ -106,7 +126,7 @@ module.exports = function(grunt) {
       },
       js: {
           files: ['<%= dirs.build %><%= dirs.js %>**/*.js'],
-          tasks: ['babel','uglify', 'growl:uglify']
+          tasks: ['babel','uglify','test', 'growl:uglify']
       }
     },
   });
@@ -123,5 +143,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['growl:watch', 'watch']);
   grunt.registerTask('test',['connect:build','qunit']);
-  grunt.registerTask('build',['bower','copy','babel','uglify','test','clean','growl:build']);
+  grunt.registerTask('build',['bower','copy','babel','uglify','clean','growl:build']);
 };

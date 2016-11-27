@@ -4,6 +4,7 @@
   "description": "*(Ugh)*. Progressively enhanced Emoji&ndash;first iconography pattern and utility.   WIP.",
   "main": "dist/emosvg.js",
   "scripts": {
+    "start": "grunt build && grunt connect:alive",
     "test": "grunt test"
   },
   "repository": {

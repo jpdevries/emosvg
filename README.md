@@ -31,7 +31,7 @@ Your SVG graphic can be a SVG file or part of an SVG sprite.
 
 ### 🐛 Browser Support
 emoSVG works in modern browsers. With the assistance of polyfills, it supports&nbsp;IE9+.  
-[More on polyfills&nbsp;here](https://github.com/jpdevries/emoSVG/tree/master/assets/js/polyfill).
+[More on polyfills&nbsp;here](https://github.com/jpdevries/emoSVG/tree/master/dist/polyfill).
 
 ## 🕰 When?
 When you ship your SVG icons totally up to you. emoSVG just gives you a simple API to turn a `span.emoji` element into the appropriate enhanced markup. We recommend that you enhance Emoji into something else when:
