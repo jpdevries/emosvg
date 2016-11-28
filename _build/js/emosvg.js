@@ -30,7 +30,7 @@ function emoSVG(elements) {
   </svg>` :
   `<img src="${artwork}" alt="${alt}" ${classAttr}${style}${ariaHidden}${origHTML}>`;
 } else {
-    html = decodeURI(element.dataset.emosvgOrig);
+    html = decodeURI(element.getAttribute('data-emosvg-orig'));
 }
 
     if(!inline) {
