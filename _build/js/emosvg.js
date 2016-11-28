@@ -65,3 +65,7 @@ function emoSVG(elements) {
 
   }
 }
+
+module.exports = {
+  emoSVG:emoSVG
+};

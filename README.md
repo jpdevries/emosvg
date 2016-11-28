@@ -29,7 +29,7 @@ emoSVG will turn your Emoji into SVG graphics if and when you ask it to. To acco
 Your SVG graphic can be a SVG file or part of an SVG&nbsp;sprite.
 
 ### 🏋️‍ Weigh In
-`emoSVG.min.js` weights a whopping 674 bytes GZIPed and&nbsp;minified. Whoop&mdash;d&mdash;doo. That's not the point. Remember that the artwork you'll be replacing your Emoji with does way something. Keep that in mind and only pass this cost onto your users when&nbsp;appropriate.
+`emoSVG.min.js` weights a whopping 881 bytes GZIPed and&nbsp;minified. Whoop&mdash;d&mdash;doo. That's not the point. Remember that the artwork you'll be replacing your Emoji with does way something. Keep that in mind and only pass this cost onto your users when&nbsp;appropriate.
 
 ### 🐛 Browser Support
 emoSVG works in modern browsers. With the assistance of polyfills, it supports&nbsp;IE9+.  
@@ -106,6 +106,21 @@ document.addEventListener("DOMContentLoaded", function() {
   const emoji = document.querySelectorAll('.emoji');
   emoSVG(emoji);
 });
+```
+
+### 🌐 Universal Module Definition
+emoSVG is packaged by Webpack as a UMD JavaScript module and can be universally used as&nbsp;such. So you can write your scripts how you want. &nbsp;Whatever.
+
+#### `global`
+```js
+<script src="./assets/js/emosvg.js"></script>
+emoSVG(emoji);
+```
+
+#### `require()`
+```js
+const emoSVG = require('emosvg');
+emoSVG(emoji);
 ```
 
 ### 🎨 SVG Graphic

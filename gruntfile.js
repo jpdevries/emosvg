@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  var webpackConfig = require('./webpack.config.js');
   grunt.initConfig({
     dirs:{
       build:'_build/',
@@ -94,6 +95,11 @@ module.exports = function(grunt) {
         }
       }
     },
+    webpack:{
+      options:webpackConfig,
+      dist:{
+      }
+    },
     babel: {
         options: {
             sourceMap: false,
@@ -145,7 +151,7 @@ module.exports = function(grunt) {
       },
       js: {
           files: ['<%= dirs.build %><%= dirs.js %>**/*.js'],
-          tasks: ['babel','uglify','copy:dist', 'growl:uglify']
+          tasks: ['webpack','uglify','copy:dist', 'growl:uglify']
       }
     },
   });
@@ -159,9 +165,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-webpack');
 
   grunt.registerTask('default', ['growl:watch', 'watch']);
   grunt.registerTask('test',['connect:build','qunit']);
   grunt.registerTask('alive',['connect:alive','growl:alive']);
-  grunt.registerTask('build',['bower','copy','babel','uglify','copy:dist','clean','growl:build']);
+  grunt.registerTask('build',['bower','copy','webpack','uglify','copy:dist','clean','growl:build']);
 };

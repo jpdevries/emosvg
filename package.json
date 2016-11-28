@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/jpdevries/emoSVG#readme",
   "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
     "babel-preset-es2015": "^6.18.0",
     "grunt-babel": "^6.0.0",
     "grunt-bower-task": "^0.4.0",
@@ -27,6 +29,9 @@
     "grunt-contrib-qunit": "^1.2.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-growl": "^0.1.5"
+    "grunt-growl": "^0.1.5",
+    "grunt-webpack": "^1.0.18",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   }
 }
