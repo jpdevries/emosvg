@@ -112,9 +112,9 @@ document.addEventListener("DOMContentLoaded", function() {
 emoSVG is packaged by Webpack as a UMD JavaScript module and can be universally used as&nbsp;such. So you can write your scripts how you want. Whatever.
 
 #### `global`
-```js
+```html
 <script src="./assets/js/emosvg.js"></script>
-emoSVG(emoji);
+<script>emoSVG(emoji);</script>
 ```
 
 #### `require()`
@@ -124,14 +124,14 @@ emoSVG(emoji);
 ```
 
 ### 💰 Cache Busting
-In the distributed files you'll find a busted folder that contains unminified and minified versions of emoSVG with a cachebusted filename. We recommend you serve emoSVG cachebusted with far future reaching expiry dates in&nbsp;production.
+In the distributed files you'll find a busted folder that contains unminified and minified versions of emoSVG with a cachebusted filename. We recommend you serve `emosvg.*.*.*.min.js` cachebusted with far future reaching expiry dates in&nbsp;production.
 
 ```bash
 ls lib/emosvg/
-busted emosvg.js	emosvg.min.js	polyfill
+busted  emosvg.js  emosvg.min.js  polyfill
 
 ls lib/emosvg/busted/
-emosvg.0.0.0.js		emosvg.0.0.0.min.js
+emosvg.0.0.0.js  emosvg.0.0.0.min.js
 ```
 
 ### 🎨 SVG Graphic
