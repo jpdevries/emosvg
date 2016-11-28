@@ -29,12 +29,6 @@ module.exports = function(grunt) {
         src: '<%= dirs.lib %>/svgsprite/fontawesome/icons.svg',
         dest: '<%= dirs.test %>assets/icons/fontawesome/fontawesome.svg'
       },
-      'emosvg': {
-        src: './**/*',
-        cwd: '<%= dirs.dist %>',
-        dest: '<%= dirs.test %>emosvg',
-        expand: true
-      },
       'qunit': {
         src: './qunit/**/*',
         cwd: '<%= dirs.lib %>',
@@ -62,7 +56,7 @@ module.exports = function(grunt) {
         expand: true
       },
       'dist': {
-        src: ['./*.js','./polyfill/**/*'],
+        src: ['./README.md','./*.js','./polyfill/**/*'],
         cwd: '<%= dirs.dist %>',
         dest: '<%= dirs.test %>emosvg',
         //flatten: true,
@@ -80,7 +74,7 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      prebuild:["<%= dirs.dist %>busted"],
+      prebuild:["<%= dirs.dist %>busted/**/*.js"],
       postbuild:["<%= dirs.lib %>"]
     },
     connect: {
