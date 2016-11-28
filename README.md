@@ -51,7 +51,7 @@ emoSVG is installable via bower or by downloading this&nbsp;repository.
 bower install emosvg --save
 ```
 
-Use Emoji in your HTML. Wrap them in&nbsp;`span.emoji`.
+Use Emoji in your HTML. Wrap them in&nbsp;`span.emoji`. Or something else.&nbsp;Whatever.
 ```html
 <h1>
   <span class="emoji">🎉</span>
