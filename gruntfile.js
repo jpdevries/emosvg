@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
-  var webpackConfig = require('./webpack.config.js');
+  const webpackConfig = require('./webpack.config.js');
   grunt.initConfig({
-    dirs:{
+    pkg: grunt.file.readJSON('./package.json'),
+    dirs: {
       build:'_build/',
       theme:'./',
       dist:'dist/',
@@ -61,14 +62,27 @@ module.exports = function(grunt) {
         expand: true
       },
       'dist': {
-        src: './**/*',
+        src: ['./*.js','./polyfill/**/*'],
         cwd: '<%= dirs.dist %>',
         dest: '<%= dirs.test %>emosvg',
         //flatten: true,
         expand: true
+      },
+      'bust': {
+        src: '<%= dirs.dist %>*.js',
+        //cwd: '<%= dirs.dist %>',
+        dest: '<%= dirs.dist %>busted/',
+        flatten: true,
+        expand: true,
+        rename: function(dest, src){
+          return dest + src.replace('emosvg.','emosvg.<%= pkg.version %>.');
+        }
       }
     },
-    clean: ["<%= dirs.lib %>"],
+    clean: {
+      prebuild:["<%= dirs.dist %>busted"],
+      postbuild:["<%= dirs.lib %>"]
+    },
     connect: {
       build: {
         options: {
@@ -170,5 +184,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['growl:watch', 'watch']);
   grunt.registerTask('test',['connect:build','qunit']);
   grunt.registerTask('alive',['connect:alive','growl:alive']);
-  grunt.registerTask('build',['bower','copy','webpack','uglify','copy:dist','clean','growl:build']);
+  grunt.registerTask('build',['clean:prebuild','bower','copy','webpack','uglify','copy:dist','clean:postbuild','growl:build']);
 };

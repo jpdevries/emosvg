@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
 ```
 
 ### 🌐 Universal Module Definition
-emoSVG is packaged by Webpack as a UMD JavaScript module and can be universally used as&nbsp;such. So you can write your scripts how you want. &nbsp;Whatever.
+emoSVG is packaged by Webpack as a UMD JavaScript module and can be universally used as&nbsp;such. So you can write your scripts how you want. Whatever.
 
 #### `global`
 ```js
