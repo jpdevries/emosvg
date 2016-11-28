@@ -1,6 +1,6 @@
 # emoSVG 🙄
 *(Ugh)*. Progressively enhanced Emoji&ndash;first iconography pattern and&nbsp;utility.  
-WIP.
+[Test it for&nbsp;yourself](https://jpdevries.github.io/emosvg/test/).
 
 ![](http://j4p.us/0r0o071g3Z00/emoSVG.gif)
 
