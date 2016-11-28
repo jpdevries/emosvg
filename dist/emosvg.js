@@ -15,9 +15,8 @@ function emoSVG(elements) {
   return Promise.all(promises);
 
   function replaceEmoji(element) {
-    var isSpan = element.matches('span');
-
-    var artwork = isSpan ? element.getAttribute('data-emosvg') || element.getAttribute('emosvg') : '',
+    var isSpan = element.matches('span'),
+        artwork = isSpan ? element.getAttribute('data-emosvg') || element.getAttribute('emosvg') : '',
         isSprite = artwork.includes('.svg#'),
         style = element.getAttribute('style') ? 'style="' + element.getAttribute('style') + '" ' : '',
         classAttr = element.getAttribute('class') ? 'class="' + element.getAttribute('class') + '" ' : '',
@@ -32,7 +31,7 @@ function emoSVG(elements) {
     if (isSpan) {
       html = isSprite ? '<svg ' + classAttr + style + ariaHidden + origHTML + '>\n    ' + svgTitle + '<use xlink:href="' + artwork + '"></use>\n  </svg>' : '<img src="' + artwork + '" alt="' + alt + '" ' + classAttr + style + ariaHidden + origHTML + '>';
     } else {
-      html = decodeURI(element.dataset.emosvgOrig);
+      html = decodeURI(element.getAttribute('data-emosvg-orig'));
     }
 
     if (!inline) {
