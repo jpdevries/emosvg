@@ -29,7 +29,7 @@ emoSVG will turn your Emoji into SVG graphics if and when you ask it to. To acco
 Your SVG graphic can be a SVG file or part of an SVG&nbsp;sprite.
 
 ### 🏋️‍ Weigh In
-`emoSVG.min.js` weights a whopping 607 bytes GZIPed and&nbsp;minified. Whoop&mdash;d&mdash;doo. That's not the point. Remember that the artwork you'll be replacing your Emoji with does way something. Keep that in mind and only pass this cost onto your users when&nbsp;appropriate.
+`emoSVG.min.js` weights a whopping 674 bytes GZIPed and&nbsp;minified. Whoop&mdash;d&mdash;doo. That's not the point. Remember that the artwork you'll be replacing your Emoji with does way something. Keep that in mind and only pass this cost onto your users when&nbsp;appropriate.
 
 ### 🐛 Browser Support
 emoSVG works in modern browsers. With the assistance of polyfills, it supports&nbsp;IE9+.  
@@ -259,6 +259,16 @@ becomes:
   &nbsp;Biking in Amsterdam
 </h1>
 ```
+
+### Undo/Redo Support
+emoSVG lets you switch back and forth from interpretive Emoji icons to declarative art directed&nbsp;icons.  
+Whatever.
+
+Just call `emoSVG(document.querySelectorAll('.emoji'))` and all your icons will be toggled between Emoji and declarative&nbsp;icons.
+
+This is useful for offering an Accessibility Preferences component that allows users freedom of choice. Remember saving bandwidth isn't the only advantage to Emoji icon sets. To certain users, Emoji icons may be more legible than declarative&nbsp;icons.
+
+![](http://j4p.us/2x422N2l373K/emojiprefs.gif)
 
 ## Getting Started
 After cloning the repository run `npm install` or `yarn` to install the `node_modules`. You can then build and test the&nbsp;project.

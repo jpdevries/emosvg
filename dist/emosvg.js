@@ -15,15 +15,25 @@ function emoSVG(elements) {
   return Promise.all(promises);
 
   function replaceEmoji(element) {
-    var artwork = element.getAttribute('data-emosvg') || element.getAttribute('emosvg'),
+    var isSpan = element.matches('span');
+
+    var artwork = isSpan ? element.getAttribute('data-emosvg') || element.getAttribute('emosvg') : '',
         isSprite = artwork.includes('.svg#'),
         style = element.getAttribute('style') ? 'style="' + element.getAttribute('style') + '" ' : '',
         classAttr = element.getAttribute('class') ? 'class="' + element.getAttribute('class') + '" ' : '',
         alt = element.getAttribute('data-emosvg-alt') || element.getAttribute('emosvg-alt') || '',
-        ariaHidden = element.hasAttribute('aria-hidden') ? 'aria-hidden=' + element.getAttribute('aria-hidden') + ' ' : '',
-        inline = self.fetch && element.getAttribute('data-emosvg-inline') == 'true' ? true : false,
+        ariaHidden = element.hasAttribute('aria-hidden') ? 'aria-hidden="' + element.getAttribute('aria-hidden') + '" ' : '',
+        inline = isSpan && element.getAttribute('data-emosvg-inline') == 'true' ? true : false,
         svgTitle = alt ? '<title>' + alt + '</title>\n' : '',
-        html = isSprite ? '<svg ' + classAttr + style + ariaHidden + '>\n  ' + svgTitle + '<use xlink:href="' + artwork + '"></use>\n</svg>' : '<img src="' + artwork + '" alt="' + alt + '" ' + classAttr + style + ariaHidden + '>';
+        origHTML = isSpan ? 'data-emosvg-orig="' + encodeURI(element.outerHTML) + '" ' : '';
+
+    var html = '';
+
+    if (isSpan) {
+      html = isSprite ? '<svg ' + classAttr + style + ariaHidden + origHTML + '>\n    ' + svgTitle + '<use xlink:href="' + artwork + '"></use>\n  </svg>' : '<img src="' + artwork + '" alt="' + alt + '" ' + classAttr + style + ariaHidden + origHTML + '>';
+    } else {
+      html = decodeURI(element.dataset.emosvgOrig);
+    }
 
     if (!inline) {
       return new Promise(function (resolve, reject) {
@@ -37,7 +47,7 @@ function emoSVG(elements) {
           response.text().then(function (svg) {
             var parser = new DOMParser(),
                 parsed = parser.parseFromString(svg, "text/xml");
-
+            parsed.querySelector('svg').setAttribute('data-emosvg-orig', encodeURI(element.outerHTML));
             parsed.querySelector('svg').setAttribute('class', element.getAttribute('class'));
             parsed.querySelector('title') ? parsed.querySelector('title').innerHTML = alt : parsed.querySelector('svg').innerHTML = '' + svgTitle + parsed.querySelector('svg').innerHTML;
             if (element.hasAttribute('aria-hidden')) parsed.querySelector('svg').setAttribute('aria-hidden', element.getAttribute('aria-hidden'));

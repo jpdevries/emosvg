@@ -58,6 +58,13 @@ module.exports = function(grunt) {
         dest: '<%= dirs.dist %>polyfill/promise-polyfill/',
         flatten: true,
         expand: true
+      },
+      'dist': {
+        src: './**/*',
+        cwd: '<%= dirs.dist %>',
+        dest: '<%= dirs.test %>emosvg',
+        //flatten: true,
+        expand: true
       }
     },
     clean: ["<%= dirs.lib %>"],
@@ -138,7 +145,7 @@ module.exports = function(grunt) {
       },
       js: {
           files: ['<%= dirs.build %><%= dirs.js %>**/*.js'],
-          tasks: ['babel','uglify','test', 'growl:uglify']
+          tasks: ['babel','uglify','copy:dist', 'growl:uglify']
       }
     },
   });
@@ -156,5 +163,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['growl:watch', 'watch']);
   grunt.registerTask('test',['connect:build','qunit']);
   grunt.registerTask('alive',['connect:alive','growl:alive']);
-  grunt.registerTask('build',['bower','copy','babel','uglify','clean','growl:build']);
+  grunt.registerTask('build',['bower','copy','babel','uglify','copy:dist','clean','growl:build']);
 };

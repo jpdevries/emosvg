@@ -19,6 +19,23 @@
   </style>
 </head>
 <body>
+  <aside>
+    <header>
+      <h2>Icon Preferences</h2>
+      <p>Emoji Icons are interpretative and already on your device. They cost nothing in&nbsp;bandwidth.<br>Declarative Icons, at the expensive of bandwidth, are art&ndash;directed to appear as the designer&nbsp;intended.</p>
+    </header>
+    <form id="icon-prefs">
+      <div>
+        <input type="radio" id="icon-emoji" name="icon-type">
+        <label for="icon-emoji">Emoji Icons</label>
+      </div>
+
+      <div>
+        <input type="radio" id="icon-directed" name="icon-type" checked>
+        <label for="icon-directed">Declarative Icons</label>
+      </div>
+    </form>
+  </aside>
   <main>
     <h1>
       <span class="bolt emoji" data-emosvg="assets/icons/iconmonstr/sprite.svg#weather-76">⚡️</span>
@@ -36,10 +53,10 @@
       <span class="raster emoji" data-emosvg="assets/icons/fontawesome/png/beer.png">🍺</span>&nbsp;Beer
     </h1>
     <h1>
-      <span class="sized emoji" data-emosvg="assets/icons/fontawesome/svg/apple.svg" style="width:1em;height:1em">🍎</span>&nbsp;Apple
+      <span class="sized emoji" data-emosvg="assets/icons/fontawesome/svg/apple.svg" style="width:1em;height:1em" aria-hidden>🍎</span>&nbsp;Apple
     </h1>
     <h1>
-      <span class="emoji" data-emosvg="assets/icons/iconmonstr/iconmonstr-generation-8.svg" aria-hidden>👱‍♀️</span>
+      <span class="emoji" data-emosvg="assets/icons/iconmonstr/iconmonstr-generation-8.svg">👱‍♀️</span>
       &nbsp;Girl
     </h1>
     <h1>
@@ -56,6 +73,7 @@
 
   <script>
     if(!String.prototype.includes) document.write('<script src="./emosvg/polyfill/includes/string-includes.js"><\/script>');
+    if(!Element.prototype.matches) document.write('<script src="./emosvg/polyfill/matches/matches.js"><\/script>');
     if(!window.Promise) document.write('<script src="./emosvg/polyfill/promise-polyfill/promise.js"><\/script>');
     if(!self.fetch) document.write('<script src="./emosvg/polyfill/fetch/fetch.js"><\/script>');
   </script>
@@ -78,9 +96,40 @@
 
       runTests();
 
+      var iconPrefs = document.getElementById('icon-prefs');
+      iconPrefs.addEventListener('change', function(event) {
+        var doEmoji = (event.target.matches('#icon-emoji'));
+        emoSVG(document.querySelectorAll('.emoji')).then(function(){
+          if(!doEmoji) {
+            svg4everybody();
+            runTests();
+            runAsyncTests();
+          } else {
+            runEmojiTests();
+          }
+
+          console.log('yolo');
+
+          //document.getElementById('qunit').innerHTML = document.getElementById('qunit-fixture').innerHTML = '';
+
+        });
+      });
+
+      function runEmojiTests() {
+        console.log('runEmojiTests');
+        QUnit.test( "all emoji are span", function( assert ) {
+          assert.ok( (function(){
+            var emoji = document.querySelectorAll('.emoji');
+            for(var i = 0; i < emoji.length; i++) {
+              if (!emoji[i].matches('span')) return false;
+            }
+            return true;
+          })(), "Passed!" );
+        });
+      }
+
       function runTests() {
         console.log('runTests');
-        QUnit.start();
         QUnit.test( "span replaced", function( assert ) {
           assert.ok( document.querySelector('svg.bolt.emoji use[*|href="assets/icons/iconmonstr/sprite.svg#weather-76"]'), "Passed!" );
         });
@@ -102,7 +151,7 @@
         });
 
         QUnit.test( "muting", function( assert ) {
-          assert.ok( document.querySelector('.emoji[aria-hidden]'), "Passed!" );
+          assert.ok( document.querySelector('svg.emoji[aria-hidden], img.emoji[aria-hidden]'), "Passed!" );
         });
 
         QUnit.test( "describing", function( assert ) {
@@ -121,6 +170,10 @@
         });
       }
     });
+  </script>
+
+  <script>
+
   </script>
 </body>
 </html>
